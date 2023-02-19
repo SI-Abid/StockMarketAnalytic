@@ -22,22 +22,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: const MaterialColor(
-          0xFF126172,
-          <int, Color>{
-            50: Color(0xFF126172),
-            100: Color(0xFF126172),
-            200: Color(0xFF126172),
-            300: Color(0xFF126172),
-            400: Color(0xFF126172),
-            500: Color(0xFF126172),
-            600: Color(0xFF126172),
-            700: Color(0xFF126172),
-            800: Color(0xFF126172),
-            900: Color(0xFF126172),
-          },
-        )
-      ),
+          primarySwatch: const MaterialColor(
+        0xFF126172,
+        <int, Color>{
+          50: Color(0xFF126172),
+          100: Color(0xFF126172),
+          200: Color(0xFF126172),
+          300: Color(0xFF126172),
+          400: Color(0xFF126172),
+          500: Color(0xFF126172),
+          600: Color(0xFF126172),
+          700: Color(0xFF126172),
+          800: Color(0xFF126172),
+          900: Color(0xFF126172),
+        },
+      )),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -104,7 +103,7 @@ class StockPage extends StatefulWidget {
   final String collection;
 
   @override
-  _StockPageState createState() => _StockPageState();
+  State<StockPage> createState() => _StockPageState();
 }
 
 class _StockPageState extends State<StockPage> {
@@ -149,19 +148,23 @@ class _StockPageState extends State<StockPage> {
                           Expanded(
                             child: Container(
                               padding: const EdgeInsets.all(8.0),
-                                height: 75,
-                                width: snapshot.data![index][keys[i]].length *
-                                    10.0,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                    color: Colors.blueGrey,
-                                    width: 2,
-                                  ),
+                              height: 75,
+                              width:
+                                  snapshot.data![index][keys[i]].length * 10.0,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Colors.blueGrey,
+                                  width: 2,
                                 ),
-                                alignment: Alignment.center,
-                                child:
-                                    SingleChildScrollView(child: Text('${snapshot.data![index][keys[i]]}'))),
+                              ),
+                              alignment: Alignment.center,
+                              child: SingleChildScrollView(
+                                child: Text(
+                                  '${snapshot.data![index][keys[i]]}',
+                                ),
+                              ),
+                            ),
                           )
                       ],
                     ),
